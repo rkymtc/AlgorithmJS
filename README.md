@@ -1,1 +1,1 @@
-# AlgorithmJS
+# javascript algorithms exercises
