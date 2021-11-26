@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--<input type="text" name="" id="name">-->
+    <span>karesi için :</span> <input type="text" name="" id="num"><br> <button onclick="kare()">Kare</button><br>
+    <hr style="color:red;">
+    <br>
+    <span>birinci sayi :</span> <input type="text" name="" id="num1"><br>
+    <span>ikinci sayi:</span> <input type="text" name="" id="num2"><br>
+
+    <button onclick="topla()">topla</button><br>
+    <span id="result">0</span><br>
+    <br>
+    <hr style="color:thistle;">
+    <span>yüzde :</span> <input type="text" name="" id="yuzde"><br><button onclick="yuzde()">yuzde</button><br>
+    <hr style="color:yellow;">
+    <span>buyuk :</span> <input type="text" name="" id="buyuk"><br> <button onclick="calc()">buyuk</button><br>
+    <hr style="color:orange;">
+    <span>text :</span> <input type="text" name="" id="text"><br><button onclick="calc2()">p içine yaz</button><br>
+    <p id="result">...</p><br>
+    <hr style="color:gray;">
+    <input type="text" id="color">
+    <button onclick="changeColor()">Change Color</button>
+    <div style="height: 200px; width: 200px; border-style: solid;" id="box">
+
+    </div><br>
+    <hr style="color:fuchsia;">
+
+    <div style="height: 100px; width: 100px; border-style: solid;" id="box">
+
+    </div>
+
+    <button onclick="go()">go go go</button>
+</body>
+
+
+</html>
+<script>
+    //document.getElementById("title").style.color="red";
+    //document.getElementById("title").style.backgroundColor="blue";
+    //document.getElementById("title").innerHTML="hola";
+
+    //Ekrana girilen inputtaki değerin yanına TR ekle ve console a yazdır. Örneğin istanbul girdi TRistanbul yazsın gibi...
+
+    function calc() {
+        var data = document.getElementById('name').value;
+        var result = 'TR' + data;
+        console.log(result);
+    }
+
+
+    //Ekrana girilen inputtaki değerin kendisiyle toplamını console yazdır. Örneğin 5 girdi sonuç 10 olacak (5+5)
+    function calc2() {
+        var data = document.getElementById("name").value;
+        var result = Number(data) + Number(data);
+        console.log(result);
+
+
+        // "5" + "5"
+        // 5 + 5
+    }
+
+    //Ekrana girilen input 100 den büyükse console a "100 den büyük bir sayı girdiniz" yazsın. Değilse bir şey yazmasın
+    function calc3() {
+        var data = document.getElementById("name").value;
+
+        if (Number(data) > 100) {
+
+            console.log("100 den büyük bir sayı girdiniz");
+
+        }
+
+
+    }
+
+
+    
+
+    //// 1) Ekrana bir input bir buton koy butona tıkladığında input a girilen değerin karesini console a yazsın.
+    function kare() {
+        var data = document.getElementById("num").value;
+        var result = Number(data) * Number(data);
+        console.log(result)
+
+    }
+    //2) Ekrana iki input bir buton koy. Butona tıkladığında inputtaki değerleri toplayıp bir span a yazsın ( numeric olarak)
+    function topla() {
+        var x = document.getElementById("num1").value;
+        var y = document.getElementById("num2").value;
+
+        var z = Number(x) + Number(y)
+
+        document.getElementById('result').innerHTML = z;
+
+    }
+    ///3) Ekrana bir input bir buton koy. Butona tıkladığında inputtaki değerin %18 ini console a yazsın
+
+    function yuzde() {
+        var fiyat = document.getElementById("yuzde").value;
+        var kdv = fiyat * 0.18;
+        console.log(kdv)
+    }
+    ///4) Ekrana bir input bir buton koy. Butona tıkladığında inputtaki değer 100 den büyükse %18 değilse %8 den KDV sini hesaplayıp KDV li fiyatı console a yazsın.
+    function calc() {
+        var data = document.getElementById("buyuk").value;
+
+        if (Number(data) > 100) {
+
+            var fiyat = document.getElementById("buyuk").value;
+            var kdv = fiyat * 0.18;
+            console.log(kdv)
+
+
+        }
+        else {
+            var fiyat = document.getElementById("buyuk").value;
+            var kdv = fiyat * 0.8;
+            console.log(kdv)
+
+        }
+
+
+    }
+    ///5) Ekrana bir input bir p bir de buton koy. Butona tıkladığında input a girilen metni p içerisine yazdırsın
+    function text() {
+        var x = document.getElementById('text').value;
+
+        document.getElementById('result').innerHTML = x;
+    }
+
+    ///Ekrana 200*200 bir div, bir input ve bir buton koy. Butona tıkladığında inputtan aldıpı rengi div background a versin. Önreğin input a "red" girdiğinde div background red olsun.
+
+    function changeColor() {
+        var color = document.getElementById('color').value;
+        document.getElementById('box').style.backgroundColor = color;
+
+    }
+
+    //7) ** Ekrana bir buton ve 100*100 bir div koy. Butona her tıklandığında div 50 px sağa kaysın
+
+    var leftPoint = 0;
+
+    function go() {
+        leftPoint = leftPoint + 50;
+
+        document.getElementById('box').style.marginLeft = leftPoint + "px"
+    }
+</script>
