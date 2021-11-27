@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toplam</title>
+</head>
+
+<body>
+
+    <div>
+        <p>Girilen iki değerin toplamını bulma</p>
+        <br>
+        <div>
+            <span>birinci sayi :</span>
+        </div>
+        <div>
+            <input type="text" name="" id="num1"><br>
+        </div>
+        <div>
+            <span>ikinci sayi:</span>
+        </div>
+        <div>
+            <input type="text" name="" id="num2"><br>
+        </div>
+        <div><button onclick="topla()">topla</button><br></div>
+
+        <h1 id="text"></h1>
+
+
+
+</body>
+
+
+</html>
+<script>
+
+    //2) Ekrana iki input bir buton koy. Butona tıkladığında inputtaki değerleri toplayıp bir h1 e yazsın ( numeric olarak)
+    function topla() {
+        var x = document.getElementById("num1").value;
+        var y = document.getElementById("num2").value;
+        var z = Number(x) + Number(y)
+        document.getElementById('text').innerHTML = z;
+
+    }
+
+</script>
