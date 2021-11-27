@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>çift</title>
+</head>
+
+<body>
+    <p> başarılı giriş test etme sayılar çift ve sıfırdan büyük olmalı</p>
+    <div><input type="text" id="x"></div>
+    <div><input type="text" id="y"></div>
+    <div><input type="text" id="z"></div>
+    <button onclick="calc()">git</button>
+    
+
+</body>
+
+</html>
+<script>
+    //Girilen 3 sayının hepsi 0’dan büyük ve 
+    //çift ise “Başarılı Giriş”, aksi halde “Başarısız giriş” mesajı veren program
+    function calc() {
+        var x = Number(document.getElementById("x").value);
+        var y = Number(document.getElementById("y").value);
+        var z = Number(document.getElementById("z").value);
+
+        if ((x <= 0) || (y <= 0) || (z <= 0)) {
+            //console.log("sayılar sıfır ")
+            //console.error("sıfır olamaz");
+            document.getElementById("text").innerHTML = "sayılar sıfır ";
+        }
+
+        else if ((x > 0)&&  (y > 0) && (z > 0) && (x % 2 == 0) && (y % 2 == 0) && (z % 2 == 0)) {
+            
+            console.log("Başarılı Giriş");
+            document.getElementById("text").innerHTML = "Başarılı Giriş";
+        }
+        else{
+            console.log("Başarısız Giriş")
+            document.getElementById("text").innerHTML = "Başarısız Giriş";
+        }
+        
+    }
+    
+    
+
+</script>
