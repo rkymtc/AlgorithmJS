@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        height: 100px;
+    }
+</style>
+
+<body>
+
+    <body>
+
+        <hr>
+        <div>
+            <img src="img/1.jpg" id="at1">
+        </div>
+        <hr>
+        <div>
+            <img src="img/2.jpg" id="at2">
+        </div>
+        <hr>
+
+        <div>
+            <img src="img/3.jpg" id="at3">
+        </div>
+        <hr>
+        <div>
+            <img src="img/4.jpg" id="at4">
+        </div>
+        <hr>
+        <div>
+            <img src="img/5.jpg" id="at5">
+        </div>
+        <hr>
+        <div style="text-align: center;"">
+        <button onclick=" buton()">Başla</button>
+        </div>
+    </body>
+
+</html>
+<script>
+
+
+    // at yarışı  
+    //Butona her tıkladığında imageler 1,100 arasında random sağa doğru gitsin
+var atLeft = [0,0,0,0,0];
+    function buton() {
+
+    for(i=0; i < 5;i++){
+        var randomNumber = Math.floor(Math.random() * 100);
+        atLeft[i] = atLeft[i] + randomNumber;
+
+        document.getElementsByTagName('img')[i].style.marginLeft = atLeft[i] + "px";
+    }
+
+}
+</script>
