@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vize-Final</title>
+</head>
+
+<body>
+    <p>öğrencinin geçme-kalma durumu</p>
+
+    <div><span> Vize :</span> </div><div><input type="number" name="" id="vize"></div><br>
+    <div><span>Final :</span> </div><div><input type="number" name="" id="final"></div><br>
+    <div><button onclick="calc()">Hesapla</button></div>
+    <h1 id="text"></h1>
+</body>
+
+</html>
+<script>
+    //12) Ekrana 2 input koy. Öğrencinin 2 adet not bilgisi girildikten sonra, 
+    // ortalama 50 ve üzerinde ise ekrana “Geçti” değilse “Kaldı” yazdır 
+    function calc() {
+        var x = Number(document.getElementById("vize").value);
+        var y = Number(document.getElementById("final").value);
+        var ort = (x + y) / 2;
+
+        if (ort >= 50) {
+            //console.log('Not ortalaması:' + ort + ' GEÇTİNİZ');
+            document.getElementById('text').innerHTML = 'Not ortalaması: ' + ort + ' GEÇTİNİZ'
+        }
+        else {
+           // console.log('Not ortalaması:' + ort + " KALDINIZ...");
+           document.getElementById('text').innerHTML = 'Not ortalaması: ' + ort + " KALDINIZ..."
+        }
+
+    }
+
+</script>

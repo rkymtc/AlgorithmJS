@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozitif Negatif</title>
+</head>
+
+<body>
+    <div>
+        <p>girilen sayı negatif mi pozitif mi sıfır mı</p>
+        <span>Sayı Girin:</span>
+        <div><input type="number" id="sayi"></div>
+        <div><button onclick="hesapla()">Hesapla</button></div>
+        <h1 id="text"></h1>
+    </div>
+</body>
+
+</html>
+<script>
+    //13) Ekrana bir input ve bir buton koy. Girilen sayı negatifse console a "negatif", pozitifse "pozitif", sıfırsa "Sıfır" yazsın
+    function hesapla() {
+        var x = document.getElementById("sayi").value;
+
+        if (x < 0) {
+            //console.log("Sayı 0'dan küçüktür!");
+            document.getElementById('text').innerHTML = "Sayı 0'dan küçüktür! negatif sayı"
+        }
+
+        else if (x > 0) {
+            //console.log("Sayı 0 dan büyüktür!");
+            document.getElementById('text').innerHTML = "Sayı 0 dan büyüktür! pozitif sayı"
+        }
+        else if (x == 0) {
+            // console.log("Sayı 0'dır!");
+            document.getElementById('text').innerHTML = "Sayı 0'dır!"
+        }
+        else {
+            //console.log("Geçersiz sayı")
+            document.getElementById('text').innerHTML = "Geçersiz sayı"
+        }
+
+    }
+
+</script>
