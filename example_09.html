@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>soru 9</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  //*** Siparişdetayında 2 veya daha fazla sipariş bulunan orderları console a yaz.
+  var newOrders = Orders.find(q => q.details.quantity >= 2)
+  console.log(newOrders)
+
+  var result = Orders.filter(q => q.details.length >= 2);
+  console.log(result.length);
+
+  /* var multiOrder = [];
+ 
+ for (i=0; i < Orders.length; i++){
+ 
+ 
+   if(Orders[i].details.length >= 2){
+ 
+      multiOrder.push(Orders[i]);
+    }
+  }
+ console.log(multiOrder);
+ console.log(multiOrder.length);
+ */
+</script>
