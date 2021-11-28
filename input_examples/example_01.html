@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> örnek </title>
+    <script src="exercise1.js"></script>
+</head>
+
+<body>
+    <p>Ekrana girilen inputtaki değerin yanına TR ekle ve console a yazdır. Örneğin istanbul girdi TRistanbul yazsın
+        gibi...</p>
+    <div style="margin: 50px;">
+        <input type="text" name="" id="name"><br/>
+        <button onclick="calc()">yazdır</button><br>
+        <h1 id="text"></h1>
+    </div>
+</body>
+
+
+</html>
+<script>
+
+    //Ekrana girilen inputtaki değerin yanına TR ekle ve console a yazdır. Örneğin istanbul girdi TRistanbul yazsın gibi...
+
+    function calc() {
+        var data = document.getElementById('name').value;
+        var result = 'TR' + data;
+        document.getElementById("text").innerHTML = result;
+        //console.log(result);
+        // alert(result)
+    }
+
+</script>
