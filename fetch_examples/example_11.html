@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="categoryList" onchange="changeList()" style="margin: 10px;">
+        <option>Seçiniz...</option>
+        <option value="-1">Hepsi</option>
+    </select>
+    <hr>
+    <div>
+        <span>Products Count: </span>
+        <span id="Count">0</span>
+    </div>
+    <hr>
+    <div style="margin:25px; display:flex">
+        <div style="padding: 5px;">
+            <label for=""> Name: </label>
+            <input type="text" name="" id="name">
+        </div>
+        <div style="padding: 5px;">
+            <label for="">Unit Price: </label>
+            <input type="text" name="" id="unitPrice">
+        </div>
+
+        <div style="padding: 5px;">
+            <label for="">units In Stock: </label>
+            <input type="text" name="" id="unitsInStock">
+        </div>
+        <div style="padding: 5px;">
+            <button onclick="add()">Add</button>
+        </div>
+    </div>
+
+
+    <hr>
+    <div style="margin:25px; display:flex">
+
+        <div style="padding: 5px;">
+            <label for="">category Id</label>
+            <input type="text" name="" id="categoryId">
+        </div>
+
+        <div style="padding: 5px;">
+            <button onclick="deleteProducts()">Delete</button>
+        </div>
+        <div style="padding: 5px;">
+            <button onclick="getProducts()">Get Products</button>
+        </div>
+    </div>
+    <ul id="productList" style="list-style:square;">
+
+    </ul>
+
+
+</body>
+
+</html>
+<script>
+
+    const apiUrl = 'https://northwind.vercel.app/api/products';
+
+    var getProducts = () => {
+
+        document.getElementById('products').innerHTML = ''
+
+        fetch(apiUrl)
+            .then((res) => res.json())
+            .then((data) => {
+
+                data.map((item) => {
+
+                    var liElement = document.createElement('li');
+                    liElement.innerHTML = item.name + " - " + item.id
+                    document.getElementById('products').appendChild(liElement);
+                })
+                document.getElementById('Count').innerHTML = data.length
+            })
+    }
+
+    var add = () => {
+
+        var newProducts = new Object();
+        newProducts.name = document.getElementById('name').value;
+        newProducts.unitPrice = document.getElementById('unitPrice').value;
+        newProducts.unitsInStock = document.getElementById('unitsInStock').value;
+
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProducts)
+        }
+
+
+        fetch(apiUrl, requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+
+                console.log('Product ekleme işlemi başarılı!');
+                getProducts()
+
+            })
+
+    }
+
+    var deleteProducts = () => {
+
+        var categoryId = document.getElementById('categoryId').value;
+
+        //GET, POST, DELETE
+        var requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }
+
+        fetch(apiUrl + "/" + categoryId, requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                getProducts();
+            })
+    }
+
+    //liste doldurma
+    fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+
+            data.map((item) => {
+
+                var optionElement = document.createElement('option');
+                optionElement.innerHTML = item.name;
+                optionElement.value = item.categoryId;
+                document.getElementById('categoryList').appendChild(optionElement);
+            })
+
+        })
+
+    var changeList = () => {
+
+        var secilenList = document.getElementById('categoryList').value;
+
+        document.getElementById('productList').innerHTML = ''
+
+        fetch(apiUrl)
+            .then((res) => res.json())
+            .then((data) => {
+
+                var ListData = []
+
+                if (secilenList == -1) {
+                    ListData = data
+                }
+                else {
+                    ListData = data.filter(q => q.categoryId == secilenList)
+                }
+
+                ListData.map((item) => {
+
+                    var liElement = document.createElement('li');
+                    liElement.innerHTML = item.name + " - " + item.id
+                    document.getElementById('productList').appendChild(liElement)
+
+                   
+
+
+                })
+            })
+
+    }
+
+
+</script>

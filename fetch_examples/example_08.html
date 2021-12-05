@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="">unit Price: </label>
+        <input type="text" name="" id="unitPrice">
+    </div>
+    <div>
+        <label for="">units In Stock :</label>
+        <input type="text" name="" id="unitsInStock">
+    </div>
+    <div>
+        <label for="">name :</label>
+        <input type="text" name="" id="name">
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <ul>
+
+    </ul>
+</body>
+
+</html>
+
+<script>
+// Ekrana unitPrice, unitsIn Stock, ve name için birer input koy. Product ekle
+
+    var add = () => {
+
+        var newProducts = {
+            unitPrice: document.getElementById('unitPrice').value,
+            unitsInStock: document.getElementById('unitsInStock').value,
+            name: document.getElementById('name').value,
+            
+        }
+
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProducts)
+        }
+
+
+        fetch("https://northwind.vercel.app/api/products",requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                alert(" başarıyla eklendi!! ")
+            })
+
+    }
+</script>
